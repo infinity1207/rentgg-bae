@@ -1,4 +1,5 @@
 # Django settings for mysite project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,40 +10,37 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import os
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
-# sae mysql
-# import sae.const
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': sae.const.MYSQL_DB,                     
-#         'USER': sae.const.MYSQL_USER,                    
-#         'PASSWORD': sae.const.MYSQL_PASS,                
-#         'HOST': sae.const.MYSQL_HOST,                     
-#         'PORT': sae.const.MYSQL_PORT,
+#         'NAME': 'test',
+#         'USER': 'root',
+#         'PASSWORD': '811225',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3307',
 #     }
 # }
 
 # bae mysql
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'IIdLDHgTyILQWAHpNkKv',                     
-        'USER': 'SnO3H62wURVOIEI7aKfQu0xK',                    
-        'PASSWORD': 'TPDbEM80z7VGDrl6uo9NrQMdtB2s32vC',
-        'HOST': 'sqld.duapp.com',
-        'PORT': '4050',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'vJyprCJunaGRYRZcErRs',                     
+#         'USER': 'SnO3H62wURVOIEI7aKfQu0xK',                    
+#         'PASSWORD': 'TPDbEM80z7VGDrl6uo9NrQMdtB2s32vC',
+#         'HOST': 'sqld.duapp.com',
+#         'PORT': '4050',
 #     }
 # }
-
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
